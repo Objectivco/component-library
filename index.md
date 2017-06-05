@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<h1 class="PageTitle">Objectiv Components</h1>
+<h1 class="PageTitle">Site Components</h1>
 
 <p>We were so inspired by 10up's Component library that we decided to build our own. Since 10up opensourced their component library, we've taken the parts about it that we love and incorporated it to work really well with our new starter theme.</p>
 
