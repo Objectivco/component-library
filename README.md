@@ -2,6 +2,8 @@
 
 https://objectivco.github.io/component-library/
 
+This is currently in development. We will be adding a new component a day, until we are happy with our full library.
+
 ## Contributing
 Please feel free to contribute to this library.
 1. Fork it, first :) 
