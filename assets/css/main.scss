@@ -5,7 +5,11 @@
 
 @import "base/variables";
 @import "base/base";
+@import "base/typography";
 
 @import "global/site-container";
 @import "global/site-nav";
 @import "global/site-content";
+@import "global/page-title";
+@import "global/category";
+@import "global/component-list";

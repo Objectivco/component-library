@@ -16,3 +16,6 @@ kramdown:
   input: GFM
 sass:
   sass_dir: assets/css/sass
+collections:
+  component:
+    output: true

@@ -1,0 +1,19 @@
+.Categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.Category {
+    flex-basis: 33%;
+    max-width: 33%;
+    padding-right: 0.8rem;
+    width: 33%;
+}
+
+.CategoryLink h4 {
+    color: #fff;
+    font-size: $base-font-size;
+    font-weight: 700;
+    margin: 0 4rem;
+}
