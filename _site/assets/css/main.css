@@ -163,6 +163,9 @@ h5 { font-size: 1.5rem; }
 
 p, ul, ol { color: #555; font-size: 1.8rem; margin: 14px 0px 18px 0px; transition: all 0.3s ease-in-out; }
 
+a { color: #ff4247; }
+a:hover { color: #ff0f15; }
+
 /* Code */
 code, pre { font-family: "PT Mono", Menlo, "Courier New", monospace; font-size: .8em; }
 

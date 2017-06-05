@@ -14,7 +14,7 @@
     margin-top: 0;
 }
 
-.Accordion-header.Accordion--is-active {
+.Accordion-header.is-active {
     border-bottom: none;
 }
 
@@ -26,7 +26,7 @@
     top: 8px;
 }
 
-.Accordion-header.Accordion--is-active:after {
+.Accordion-header.is-active:after {
     transform: rotate(45deg);
 }
 
@@ -38,6 +38,6 @@
     padding: 10px 15px;
 }
 
-.Accordion-content.Accordion--is-active {
+.Accordion-content.is-active {
     display: block;
 }

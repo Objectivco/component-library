@@ -30,3 +30,11 @@ ol {
     margin: 14px 0px 18px 0px;
     transition: all $base-duration $base-timing;
 }
+
+a {
+    color: $red;
+
+    &:hover {
+        color: darken($red, 10);
+    }
+}

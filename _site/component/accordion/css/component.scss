@@ -21,7 +21,7 @@
         margin-top: 0;
     }
 
-    &.Accordion--is-active {
+    &.is-active {
         border-bottom: none;
 
         &:after {
@@ -37,7 +37,7 @@
     display: none;
     padding: 10px 15px;
 
-    &.Accordion--is-active {
+    &.is-active {
         display: block;
     }
 }

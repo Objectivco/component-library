@@ -35,14 +35,14 @@
                     contentLabel = content.getElementsByClassName('Accordion-label')[0];
                 
                 // Set our active classes
-                header.classList.toggle('Accordion--is-active');
-                content.classList.toggle('Accordion--is-active');
+                header.classList.toggle('is-active');
+                content.classList.toggle('is-active');
 
                 // Focus on the label in the accordion content
                 contentLabel.focus();
 
                 // Let's now set all of our attributes if the accordion is active
-                if (content.classList.contains('Accordion--is-active')) {
+                if (content.classList.contains('is-active')) {
                     header.setAttribute( 'aria-selected', 'true' );
 					header.setAttribute( 'aria-expanded', 'true' );
 					content.setAttribute( 'aria-hidden', 'false' );
