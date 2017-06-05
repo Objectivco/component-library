@@ -1,3 +1,13 @@
-{% raw %}<div>
-    {{site.title}}
-</div>{% endraw %}
+{% raw %}<div class="Accordion">
+
+    {% for item in post.get_field('accordion') %}
+        
+        <button class="Accordion-header" type="button">{{item.accordion_header}}</button>
+        <div class="Accordion-content">
+            <h2 class="Accordion-label">{{item.accordion_label}}</h2>
+            {{item.accordion_content}}
+        </div> {# .Accordion-content #}
+        
+    {% endfor %}
+
+</div>{# .Accordion #}{% endraw %}

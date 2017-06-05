@@ -1,0 +1,43 @@
+.Accordion-header {
+    background: #eeeeee;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-top: 10px;
+    padding: 10px 15px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    &:after {
+        content: "+";
+        position: absolute;
+        right: 15px;
+        transition: transform 0.2s ease-in-out;
+        top: 8px;
+    }
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+
+    &.Accordion--is-active {
+        border-bottom: none;
+
+        &:after {
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.Accordion-content {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: none;
+    padding: 10px 15px;
+
+    &.Accordion--is-active {
+        display: block;
+    }
+}
