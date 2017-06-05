@@ -1,0 +1,17 @@
+{% raw %}<div class="Tabs">
+    
+    <nav class="Tabs-nav">
+
+        {% for tab in post.get_field( 'tabs' ) %}
+            <a href="#" class="Tabs-link {{ (loop.first) ? 'is-active' : '' }}">{{tab.tab_title}}</a>
+        {% endfor %}
+
+    </nav><!-- //.Tabs-nav -->
+    
+    {% for tab in post.get_field( 'tabs' ) %}
+        <div class="Tab {{ (loop.first) ? 'is-active' : '' }}">
+            {{tab.tab_content}}
+        </div><!-- //.Tab -->
+    {% endfor %}
+    
+</div><!-- //.Tabs -->{% endraw %}

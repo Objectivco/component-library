@@ -25,6 +25,7 @@
         // If we don't have tabs, jump out
         if (!tabs) return;
 
+        // Click handler function to go to tab on click
         function tabClickHandler(link, index) {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -32,6 +33,7 @@
             });
         }   
 
+        // Add appropriate classes based on the current index
         function goToTab(index) {
             if (index !== activeIndex && index >= 0 && index <= tabLinks.length) {
                 tabLinks[activeIndex].classList.remove('is-active');
@@ -54,6 +56,7 @@
             
         }
 
+        // Loop through the links and set the clickhandler
         Array.prototype.map.call(tabLinks, function(value, index) {
             var link = value;
             tabClickHandler(link, index);
@@ -64,6 +67,7 @@
             } 
         });
 
+        // Loop through containers and add appropriate attributes
         Array.prototype.map.call(tabContainers, function(value, index) {
             var content = value;
             
