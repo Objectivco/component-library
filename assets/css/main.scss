@@ -6,10 +6,13 @@
 @import "base/variables";
 @import "base/base";
 @import "base/typography";
+@import "base/code";
+@import "base/syntax";
 
-@import "global/site-container";
-@import "global/site-nav";
-@import "global/site-content";
-@import "global/page-title";
-@import "global/category";
-@import "global/component-list";
+@import "components/site-container";
+@import "components/site-nav";
+@import "components/site-content";
+@import "components/page-title";
+@import "components/category";
+@import "components/component-list";
+@import "components/iframe";

@@ -161,6 +161,228 @@ h5 { font-size: 1.5rem; }
 
 p, ul, ol { color: #555; font-size: 1.8rem; margin: 14px 0px 18px 0px; transition: all 0.3s ease-in-out; }
 
+/* Code */
+code, pre { font-family: "PT Mono", Menlo, "Courier New", monospace; font-size: .8em; }
+
+code { padding: .25em .5em; color: #005980; background-color: #efefef; border-radius: .2rem; }
+
+pre { display: block; line-height: 1.4; margin: 0 0 1rem; overflow: auto; white-space: pre; }
+
+pre code { padding: 0; color: inherit; background-color: transparent; border: 0; }
+
+.highlight { margin: 0; font-size: 1.6rem; }
+
+.highlight pre { margin-bottom: 0; }
+
+.highlight + .highlight { margin-top: 1rem; }
+
+.highlight { margin: 0 0 1rem; padding: .75rem; overflow-x: auto; }
+
+.highlight .hll { background-color: #ffffcc; }
+
+.highlight { background: #f0f0f0; }
+
+.highlight .c { color: #60a0b0; font-style: italic; }
+
+/* Comment */
+.highlight .err { border: 1px solid #FF0000; }
+
+/* Error */
+.highlight .k { color: #007020; font-weight: bold; }
+
+/* Keyword */
+.highlight .o { color: #666666; }
+
+/* Operator */
+.highlight .ch { color: #60a0b0; font-style: italic; }
+
+/* Comment.Hashbang */
+.highlight .cm { color: #60a0b0; font-style: italic; }
+
+/* Comment.Multiline */
+.highlight .cp { color: #007020; }
+
+/* Comment.Preproc */
+.highlight .cpf { color: #60a0b0; font-style: italic; }
+
+/* Comment.PreprocFile */
+.highlight .c1 { color: #60a0b0; font-style: italic; }
+
+/* Comment.Single */
+.highlight .cs { color: #60a0b0; background-color: #fff0f0; }
+
+/* Comment.Special */
+.highlight .gd { color: #A00000; }
+
+/* Generic.Deleted */
+.highlight .ge { font-style: italic; }
+
+/* Generic.Emph */
+.highlight .gr { color: #FF0000; }
+
+/* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold; }
+
+/* Generic.Heading */
+.highlight .gi { color: #00A000; }
+
+/* Generic.Inserted */
+.highlight .go { color: #888888; }
+
+/* Generic.Output */
+.highlight .gp { color: #c65d09; font-weight: bold; }
+
+/* Generic.Prompt */
+.highlight .gs { font-weight: bold; }
+
+/* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold; }
+
+/* Generic.Subheading */
+.highlight .gt { color: #0044DD; }
+
+/* Generic.Traceback */
+.highlight .kc { color: #007020; font-weight: bold; }
+
+/* Keyword.Constant */
+.highlight .kd { color: #007020; font-weight: bold; }
+
+/* Keyword.Declaration */
+.highlight .kn { color: #007020; font-weight: bold; }
+
+/* Keyword.Namespace */
+.highlight .kp { color: #007020; }
+
+/* Keyword.Pseudo */
+.highlight .kr { color: #007020; font-weight: bold; }
+
+/* Keyword.Reserved */
+.highlight .kt { color: #902000; }
+
+/* Keyword.Type */
+.highlight .m { color: #40a070; }
+
+/* Literal.Number */
+.highlight .s { color: #4070a0; }
+
+/* Literal.String */
+.highlight .na { color: #4070a0; }
+
+/* Name.Attribute */
+.highlight .nb { color: #007020; }
+
+/* Name.Builtin */
+.highlight .nc { color: #0e84b5; font-weight: bold; }
+
+/* Name.Class */
+.highlight .no { color: #60add5; }
+
+/* Name.Constant */
+.highlight .nd { color: #555555; font-weight: bold; }
+
+/* Name.Decorator */
+.highlight .ni { color: #d55537; font-weight: bold; }
+
+/* Name.Entity */
+.highlight .ne { color: #007020; }
+
+/* Name.Exception */
+.highlight .nf { color: #06287e; }
+
+/* Name.Function */
+.highlight .nl { color: #002070; font-weight: bold; }
+
+/* Name.Label */
+.highlight .nn { color: #0e84b5; font-weight: bold; }
+
+/* Name.Namespace */
+.highlight .nt { color: #062873; font-weight: bold; }
+
+/* Name.Tag */
+.highlight .nv { color: #bb60d5; }
+
+/* Name.Variable */
+.highlight .ow { color: #007020; font-weight: bold; }
+
+/* Operator.Word */
+.highlight .w { color: #bbbbbb; }
+
+/* Text.Whitespace */
+.highlight .mb { color: #40a070; }
+
+/* Literal.Number.Bin */
+.highlight .mf { color: #40a070; }
+
+/* Literal.Number.Float */
+.highlight .mh { color: #40a070; }
+
+/* Literal.Number.Hex */
+.highlight .mi { color: #40a070; }
+
+/* Literal.Number.Integer */
+.highlight .mo { color: #40a070; }
+
+/* Literal.Number.Oct */
+.highlight .sa { color: #4070a0; }
+
+/* Literal.String.Affix */
+.highlight .sb { color: #4070a0; }
+
+/* Literal.String.Backtick */
+.highlight .sc { color: #4070a0; }
+
+/* Literal.String.Char */
+.highlight .dl { color: #4070a0; }
+
+/* Literal.String.Delimiter */
+.highlight .sd { color: #4070a0; font-style: italic; }
+
+/* Literal.String.Doc */
+.highlight .s2 { color: #4070a0; }
+
+/* Literal.String.Double */
+.highlight .se { color: #4070a0; font-weight: bold; }
+
+/* Literal.String.Escape */
+.highlight .sh { color: #4070a0; }
+
+/* Literal.String.Heredoc */
+.highlight .si { color: #70a0d0; font-style: italic; }
+
+/* Literal.String.Interpol */
+.highlight .sx { color: #c65d09; }
+
+/* Literal.String.Other */
+.highlight .sr { color: #235388; }
+
+/* Literal.String.Regex */
+.highlight .s1 { color: #4070a0; }
+
+/* Literal.String.Single */
+.highlight .ss { color: #517918; }
+
+/* Literal.String.Symbol */
+.highlight .bp { color: #007020; }
+
+/* Name.Builtin.Pseudo */
+.highlight .fm { color: #06287e; }
+
+/* Name.Function.Magic */
+.highlight .vc { color: #bb60d5; }
+
+/* Name.Variable.Class */
+.highlight .vg { color: #bb60d5; }
+
+/* Name.Variable.Global */
+.highlight .vi { color: #bb60d5; }
+
+/* Name.Variable.Instance */
+.highlight .vm { color: #bb60d5; }
+
+/* Name.Variable.Magic */
+.highlight .il { color: #40a070; }
+
+/* Literal.Number.Integer.Long */
 .SiteContainer { padding-left: 30rem; }
 
 .SiteNav { background: #ff4247; bottom: 0; left: 0; position: fixed; right: auto; top: 0; width: 30rem; overflow-y: scroll; }
@@ -190,3 +412,10 @@ p, ul, ol { color: #555; font-size: 1.8rem; margin: 14px 0px 18px 0px; transitio
 
 .SiteNav .ComponentList-item > a { border-radius: 4px; color: #fff; padding: 5px 10px; }
 .SiteNav .ComponentList-item > a:hover { background: rgba(0, 0, 0, 0.1); }
+
+iframe { width: 100%; border: 5px solid #eee; padding: 0; margin: 20px auto 0; display: block; max-width: calc(100vw - 45px); position: relative; transition: width linear .2s, transform linear .2s; }
+iframe.h-small { height: 100px; }
+iframe.h-medium { height: 350px; }
+iframe.h-large { height: 550px; }
+iframe.w-iframe__small { width: 400px; }
+iframe.w-iframe__medium { width: 700px; }

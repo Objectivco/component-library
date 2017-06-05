@@ -1,12 +1,10 @@
 ---
 layout: default
 ---
-<div class="content">
-	<div class="component">
-		{% if page.title %}
-			<h2>{{ page.title }}</h2>
-		{% endif %}
-		
-		{{ content }}
-	</div>
+<div class="Component">
+	{% if page.title %}
+		<h1>{{ page.title }}</h1>
+	{% endif %}
+	
+	{{ content }}
 </div>

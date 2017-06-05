@@ -1,0 +1,30 @@
+iframe {
+    width: 100%;
+    border: 5px solid #eee;
+    padding: 0;
+    margin: 20px auto 0;
+    display: block;
+    max-width: calc(100vw - 45px);
+    position: relative;
+    transition: width linear .2s, transform linear .2s;
+
+    &.h-small {
+        height: 100px;
+    }
+
+    &.h-medium {
+        height: 350px;
+    }
+
+    &.h-large {
+        height: 550px;
+    }
+
+    &.w-iframe__small {
+        width: 400px;
+    }
+
+    &.w-iframe__medium {
+        width: 700px;
+    }
+}
