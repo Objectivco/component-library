@@ -1,0 +1,24 @@
+.Tabs-link {
+    background: #f9f9f9;
+    color: #ccc;
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.Tabs-link:hover,
+.Tabs-link.is-active {
+    background: #eee;
+    color: #222;
+}
+
+.Tab {
+    border: 2px solid #eee;
+    display: none;
+    padding: 30px 15px;
+}
+
+.Tab.is-active {
+    display: block;
+}

@@ -4,9 +4,9 @@
 ```
 <h3>PHP</h3>
 ```php
-{% include_relative component-wp.html %}
+{% include_relative component.php %}
 ```
 <h3>Twig</h3>
 ```twig
-{% include_relative component-twig.html %}
+{% include_relative component.twig %}
 ```
