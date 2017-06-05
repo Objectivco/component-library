@@ -1,0 +1,20 @@
+.SiteNav {
+    background: $red;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: auto;
+    top: 0;
+    width: 30rem;
+    overflow-y: scroll;
+}
+
+.Logo {
+    padding: 30px;
+
+    svg {
+        display: block;
+        margin: 0 auto;
+        width: 150px;
+    }
+}

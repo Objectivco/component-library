@@ -1,0 +1,8 @@
+{
+  "name": "component-library",
+  "homepage": "https://github.com/Objectivco/component-library",
+  "license": "MIT",
+  "dependencies": {
+    "normalize-css": "normalize.css#^7.0.0"
+  }
+}

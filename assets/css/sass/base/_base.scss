@@ -1,0 +1,39 @@
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.2rem;
+	line-height: 1.4;
+    color: #222;
+	font-family: $font;
+}
+
+::selection {
+	background: $red; /* Webkit */
+	color:white;
+}
+
+::-moz-selection {
+	background: $red; /* Firefox */
+	color:white;
+}
+
+img {
+    display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+// Reusable, toolbox kind of class
+.screen-reader-text {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
