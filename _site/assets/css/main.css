@@ -398,11 +398,11 @@ pre code { padding: 0; color: inherit; background-color: transparent; border: 0;
 
 .Category { flex-basis: 33%; max-width: 33%; padding-right: 0.8rem; width: 33%; }
 
-.CategoryLink { margin-bottom: 1.5rem; }
+.CategoryLink { margin-bottom: 2rem; }
 
-.CategoryLink h4 { color: #fff; font-size: 1.8rem; font-weight: 700; margin: 0 4rem; }
+.CategoryLink h4 { color: #222; font-weight: 700; margin: 0 4rem; }
 
-.SiteNav .ComponentList { margin: 0; margin-left: 20px; padding-left: 30px; }
+.SiteNav .ComponentList { margin: 0; margin-left: 20px; padding-left: 10px; }
 
 .Category .ComponentList { padding: 0; }
 
