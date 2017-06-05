@@ -176,13 +176,15 @@ p, ul, ol { color: #555; font-size: 1.8rem; margin: 14px 0px 18px 0px; transitio
 
 .Category { flex-basis: 33%; max-width: 33%; padding-right: 0.8rem; width: 33%; }
 
+.CategoryLink { margin-bottom: 1.5rem; }
+
 .CategoryLink h4 { color: #fff; font-size: 1.8rem; font-weight: 700; margin: 0 4rem; }
 
-.SiteNav .ComponentList { margin-left: 20px; }
+.SiteNav .ComponentList { margin: 0; margin-left: 20px; padding-left: 30px; }
 
 .Category .ComponentList { padding: 0; }
 
-.ComponentList-item { list-style: none; }
+.ComponentList-item { list-style: none; padding: 5px 0; }
 .ComponentList-item > a { color: #555; text-decoration: none; }
 .ComponentList-item > a:hover { color: #ff4247; }
 

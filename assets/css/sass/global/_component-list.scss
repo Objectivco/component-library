@@ -1,5 +1,7 @@
 .SiteNav .ComponentList {
+    margin: 0;
     margin-left: 20px;
+    padding-left: 30px;
 }
 
 .Category .ComponentList {
@@ -8,6 +10,7 @@
 
 .ComponentList-item {
     list-style: none;
+    padding: 5px 0;
 
     > a {
         color: $gray;
@@ -20,6 +23,7 @@
 }
 
 .SiteNav .ComponentList-item {
+
     > a {
         border-radius: 4px;
         color: #fff;

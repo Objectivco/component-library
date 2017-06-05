@@ -2,7 +2,7 @@ name:          Objectiv Component Library
 title:         Objectiv Component Library
 description:   Site components for working with Objectiv's starter theme
 url:           https://objectivco.github.io/
-baseurl:       /
+baseurl:       /component-library
 permalink: none
 author:
   name:    Wes Cole
