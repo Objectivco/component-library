@@ -6,3 +6,6 @@
 
 - slug: content
   pretty: Content
+
+- slug: twig
+  pretty: Twig

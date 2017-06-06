@@ -41,8 +41,6 @@
                                     
                                 
                                     
-                                        <li class="ComponentList-item"><a href="/component-library/component/button/index.html">Button</a></li>
-                                    
                                 
                                     
                                 
@@ -95,8 +93,6 @@
                                     
                                 
                                     
-                                
-                                    
                                         <li class="ComponentList-item"><a href="/component-library/component/image/index.html">Image</a></li>
                                     
                                 
@@ -107,7 +103,34 @@
                                     
                                 
                                     
+                                
+                                    
                                         <li class="ComponentList-item"><a href="/component-library/component/testimonial/index.html">Testimonial</a></li>
+                                    
+                                
+                            </ul>
+                        </div>
+                    
+                        <div class="CategoryLink">
+                            <h4>Twig</h4>
+                            <ul class="ComponentList">
+                                
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                    
+                                        <li class="ComponentList-item"><a href="/component-library/component/macros/index.html">Macros</a></li>
+                                    
+                                
+                                    
+                                
                                     
                                 
                             </ul>
@@ -121,7 +144,108 @@
 		<h1>Blog Roll</h1>
 	
 	
-	<h2 id="blog-roll">Blog Roll</h2>
+	<iframe class="h-medium" src="/component-library/component/blogroll/example.html"></iframe>
+
+<h2 id="markup">Markup</h2>
+
+<h3>HTML</h3>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"https://schema.org/Blog"</span><span class="nt">&gt;</span>      
+    <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">"post-&lt;?php the_ID(); ?&gt;"</span> <span class="na">class=</span><span class="s">"Post"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/BlogPosting"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">itemprop=</span><span class="s">"image"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/ImageObject"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://www.fillmurray.com/100/100"</span> <span class="na">srcset=</span><span class="s">"https://www.fillmurray.com/100/100 1x, https://www.fillmurray.com/200/200 2x"</span> <span class="na">alt=</span><span class="s">"header image"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"url"</span> <span class="na">content=</span><span class="s">"https://www.fillmurray.com/100/100"</span> <span class="nt">/&gt;</span>
+		    <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"width"</span> <span class="na">content=</span><span class="s">"100"</span> <span class="nt">/&gt;</span>
+		    <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"height"</span> <span class="na">content=</span><span class="s">"100"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"PostHeader"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"PostTitle"</span> <span class="na">itemprop=</span><span class="s">"headline"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"http://objectiv.co"</span> <span class="na">itemprop=</span><span class="s">"url"</span> <span class="na">rel=</span><span class="s">"bookmark"</span><span class="nt">&gt;</span>Blog Post Title<span class="nt">&lt;/a&gt;&lt;/h2&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+                <span class="nt">&lt;strong&gt;</span>Publish Date<span class="nt">&lt;/strong&gt;</span>:
+                <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"datePublished"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"2017-06-06"</span> <span class="na">pubdate</span><span class="nt">&gt;</span>June 6, 2017<span class="nt">&lt;/time&gt;</span>
+                <span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;p&gt;</span>
+                <span class="nt">&lt;strong&gt;</span>Author<span class="nt">&lt;/strong&gt;</span>:
+                <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"author"</span><span class="nt">&gt;</span>Wes Cole<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/header&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">itemprop=</span><span class="s">"description"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;p&gt;</span>This would be the "description" or the excerpt of the blog post content.<span class="nt">&lt;/p&gt;</span>
+			<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://objectiv.co/"</span> <span class="na">itemprop=</span><span class="s">"url"</span><span class="nt">&gt;</span>Read More... <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"screen-reader-text"</span><span class="nt">&gt;</span>Post Title<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/article&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+<h3>PHP</h3>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"https://schema.org/Blog"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">while</span><span class="p">(</span> <span class="nx">have_posts</span><span class="p">()</span> <span class="p">)</span><span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span>        
+            <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">"post-</span><span class="cp">&lt;?php</span> <span class="nx">the_ID</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="s">"</span> <span class="na">class=</span><span class="s">"Post"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/BlogPosting"</span><span class="nt">&gt;</span>
+                <span class="cp">&lt;?php</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="nx">has_post_thumbnailI</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">the_post_thumbnail</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="cp">?&gt;</span>
+                <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"PostHeader"</span><span class="nt">&gt;</span>
+                    <span class="cp">&lt;?php</span> 
+                    <span class="nx">the_title</span><span class="p">(</span> <span class="s1">'&lt;h2 class="PostTitle" itemprop="headline"&gt;&lt;a href="'</span> <span class="o">.</span> <span class="nx">esc_url</span><span class="p">(</span> <span class="nx">get_permalink</span><span class="p">()</span> <span class="p">)</span> <span class="o">.</span> <span class="s1">'" itemprop="url" rel="bookmark"&gt;'</span><span class="p">,</span> <span class="s1">'&lt;/a&gt;&lt;/h2&gt;'</span> <span class="p">);</span> <span class="cp">?&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>
+                        <span class="nt">&lt;strong&gt;</span><span class="cp">&lt;?php</span> <span class="nx">esc_html_e</span><span class="p">(</span> <span class="s1">'Publish Date'</span><span class="p">,</span> <span class="s1">'objectiv'</span> <span class="p">);</span> <span class="cp">?&gt;</span><span class="nt">&lt;/strong&gt;</span>:
+                        <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"datePublished"</span><span class="nt">&gt;</span>
+                            <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">esc_attr</span><span class="p">(</span> <span class="nx">get_the_time</span><span class="p">(</span> <span class="s1">'Y-m-d'</span> <span class="p">)</span> <span class="p">);</span> <span class="cp">?&gt;</span><span class="s">"</span> <span class="na">pubdate</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_date</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/time&gt;</span>
+                        <span class="nt">&lt;/span&gt;</span>
+                    <span class="nt">&lt;/p&gt;</span>
+                    <span class="nt">&lt;p&gt;</span>
+                        <span class="nt">&lt;strong&gt;</span><span class="cp">&lt;?php</span> <span class="nx">esc_html_e</span><span class="p">(</span> <span class="s1">'Author'</span><span class="p">,</span> <span class="s1">'objectiv'</span> <span class="p">);</span> <span class="cp">?&gt;</span><span class="nt">&lt;/strong&gt;</span>:
+                        <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"author"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_author_link</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="nt">&lt;/span&gt;</span>
+                    <span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;/header&gt;</span>
+                <span class="nt">&lt;div</span> <span class="na">itemprop=</span><span class="s">"description"</span><span class="nt">&gt;</span>
+                    <span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">();</span> <span class="cp">?&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;/article&gt;</span>
+        <span class="cp">&lt;?php</span> <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
+</code></pre>
+</div>
+<h3>Twig</h3>
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"https://schema.org/Blog"</span><span class="nt">&gt;</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="ow">in</span> <span class="nv">posts</span> <span class="cp">%}</span>
+        <span class="cp">{%</span> <span class="k">import</span> <span class="s1">'_macros/_img.twig'</span> <span class="k">as</span> <span class="nv">m_img</span> <span class="cp">%}</span>
+        <span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">"post-</span><span class="cp">{{</span><span class="nv">post.id</span><span class="cp">}}</span><span class="s">"</span> <span class="na">class=</span><span class="s">"Post"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/BlogPosting"</span><span class="nt">&gt;</span>
+            <span class="cp">{%</span> <span class="k">if</span> <span class="nv">post.thumbnail</span> <span class="cp">%}</span>
+                <span class="cp">{%</span> <span class="k">set</span> <span class="nv">image</span> <span class="err">=</span> <span class="nv">post.thumbnail.id</span> <span class="cp">%}</span>
+                <span class="nt">&lt;div</span> <span class="na">itemprop=</span><span class="s">"image"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/ImageObject"</span><span class="nt">&gt;</span>
+                    <span class="cp">{{</span><span class="nv">m_img.responsive</span><span class="p">(</span><span class="nv">image</span><span class="p">,</span> <span class="err">{</span><span class="nv">alt</span><span class="err">:</span> <span class="s1">'post thumbnail'</span><span class="p">,</span> <span class="nv">class</span><span class="err">:</span> <span class="s1">'responsive'</span><span class="err">}</span><span class="p">)</span><span class="cp">}}</span>
+                    <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"url"</span> <span class="na">content=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">post.thumbnail.src</span><span class="cp">}}</span><span class="s">"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"width"</span> <span class="na">content=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">post.thumbnail.width</span><span class="cp">}}</span><span class="s">"</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"height"</span> <span class="na">content=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">post.thumbnail.height</span><span class="cp">}}</span><span class="s">"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/div&gt;</span>
+            <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+            <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"PostHeader"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"PostTitle"</span> <span class="na">itemprop=</span><span class="s">"headline"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">post.link</span><span class="cp">}}</span><span class="s">"</span> <span class="na">itemprop=</span><span class="s">"url"</span> <span class="na">rel=</span><span class="s">"bookmark"</span><span class="nt">&gt;</span><span class="cp">{{</span><span class="nv">post.title</span><span class="cp">}}</span><span class="nt">&lt;/a&gt;&lt;/h2&gt;</span>
+                <span class="nt">&lt;p&gt;</span>
+                    <span class="nt">&lt;strong&gt;</span>Publish Date<span class="nt">&lt;/strong&gt;</span>:
+                    <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"datePublished"</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">post.date</span><span class="p">(</span><span class="s1">'Y-m-d'</span><span class="p">)</span><span class="cp">}}</span><span class="s">"</span> <span class="na">pubdate</span><span class="nt">&gt;</span><span class="cp">{{</span><span class="nv">post.date</span><span class="cp">}}</span><span class="nt">&lt;/time&gt;</span>
+                    <span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/p&gt;</span>
+                <span class="nt">&lt;p&gt;</span>
+                    <span class="nt">&lt;strong&gt;</span>Author<span class="nt">&lt;/strong&gt;</span>:
+                    <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"author"</span><span class="nt">&gt;</span><span class="cp">{{</span><span class="nv">post.author</span><span class="cp">}}</span><span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;/header&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">itemprop=</span><span class="s">"description"</span><span class="nt">&gt;</span>
+                <span class="cp">{{</span><span class="nv">post.get_preview</span><span class="p">(</span><span class="nv">200</span><span class="p">)</span><span class="cp">}}</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/article&gt;</span>
+    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
 
 </div>
 
