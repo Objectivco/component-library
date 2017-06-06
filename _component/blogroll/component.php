@@ -3,7 +3,7 @@
         <?php while( have_posts() ): the_post(); ?>        
             <article id="post-<?php the_ID(); ?>" class="Post" itemscope itemtype="http://schema.org/BlogPosting">
                 <?php
-                if ( has_post_thumbnailI() ) {
+                if ( has_post_thumbnail() ) {
                     the_post_thumbnail();
                 }
                 ?>
