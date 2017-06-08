@@ -424,3 +424,6 @@ iframe.h-medium { height: 350px; }
 iframe.h-large { height: 550px; }
 iframe.w-iframe__small { width: 400px; }
 iframe.w-iframe__medium { width: 700px; }
+
+.PageNav a { background: #eee; border-radius: 3px; font-size: 14px; padding: 5px 10px; text-decoration: none; transition: all 0.3s ease-in-out; }
+.PageNav a:hover { background: #ff4247; color: #fff; }

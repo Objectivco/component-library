@@ -1,0 +1,35 @@
+{% raw %}<article class="Post post-type-{{post.post_type}}" id="post-{{post.ID}}" itemscope itemtype="https://schema.org/BlogPosting">
+    <section class="Post-content" itemprop="mainEntityOfPage">
+        <header>
+            {% if post.thumbnail %}
+                <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    {% import '_macros/_img.twig' as m_img %}
+                    {{m_img.responsive(post.thumbnail.id, {alt: 'Post-thumbnail', class: 'responsive'})}}
+                    <meta itemprop="url" content="{{post.thumbnail.src}}" />
+                    <meta itemprop="width" content="{{post.thumbnail.width}}" />
+                    <meta itemprop="height" content="{{post.thumbnail.height}}" />
+                </div>
+            {% endif %}
+            <h1 class="Post-title" itemprop="headline">{{post.title}}</h1>
+            <div class="PostMeta">
+                <p><strong>Author</strong>:
+                    <span itemprop="author">{{post.author.name}}</span>
+                </p>
+                <p><strong>Publish Date</strong>:
+                    <time datetime="{{post.date("Y-m-d")}}">{{post.date}}</time>
+                </p>
+            </div>
+            <div itemprop="publisher" itemscope="itemscope" itemtype="https://schema.org/Organization">
+                <div itemprop="logo" itemscope="itemscope" itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://placekitten.com/g/100/100" />
+                    <meta itemprop="width" content="100" />
+                    <meta itemprop="height" content="100" />
+                </div>
+                <meta itemprop="name" content="{{site.title}}" />
+            </div>
+        </header>
+        <div class="Post-body" itemprop="articleBody">
+            {{post.content}}
+        </div>
+    </section>
+</article>{% endraw %}

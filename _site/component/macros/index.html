@@ -45,8 +45,6 @@
                                     
                                 
                                     
-                                
-                                    
                                         <li class="ComponentList-item"><a href="/component-library/component/tabs/index.html">Tabs</a></li>
                                     
                                 
@@ -58,8 +56,6 @@
                         <div class="CategoryLink">
                             <h4>Navigation</h4>
                             <ul class="ComponentList">
-                                
-                                    
                                 
                                     
                                 
@@ -93,10 +89,6 @@
                                     
                                 
                                     
-                                        <li class="ComponentList-item"><a href="/component-library/component/image/index.html">Image</a></li>
-                                    
-                                
-                                    
                                         <li class="ComponentList-item"><a href="/component-library/component/logo/index.html">Logo</a></li>
                                     
                                 
@@ -114,8 +106,6 @@
                         <div class="CategoryLink">
                             <h4>Twig</h4>
                             <ul class="ComponentList">
-                                
-                                    
                                 
                                     
                                 
@@ -146,7 +136,29 @@
 	
 	<p>We love Twig and have created a few Macros that help make things a bit easier for us. One thing to note when working with Macros and Twig is that you need to import the macro everywhere you need it. If you use an <code class="highlighter-rouge">embed</code> or <code class="highlighter-rouge">block</code> within your Twig file, you need to call the Macro import within that <code class="highlighter-rouge">embed</code> or <code class="highlighter-rouge">block</code>. You can’t add a macro import at the top of the file and expect to use it wherever.</p>
 
-<p><a href="#responsive-images">Responsive Images</a> <a href="#svg-icons">SVG Icons</a></p>
+<p>By the way, all of this is built into the <a href="https://github.com/Objectivco/objectiv-starter-theme">starter theme</a> already.</p>
+
+<nav class="PageNav">
+    <a href="#responsive-images">Responsive Images</a>
+    <a href="#svg-icons">SVG Icons</a>
+</nav>
+
+<h2 id="classes">Classes</h2>
+<p>We utilize this Macro within the Image and SVG Icons Macros. It takes an array of classes and outputs them appropriately in the Macros.</p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{%</span> <span class="k">import</span> <span class="s1">'_macros/_classAttr.twig'</span> <span class="k">as</span> <span class="nv">m_classAttr</span> <span class="cp">%}</span>
+<span class="cp">{{</span><span class="nv">m_classAttr.classAttr</span><span class="p">(</span><span class="s1">'className'</span><span class="p">)</span><span class="cp">}}</span>
+</code></pre>
+</div>
+
+<h4 id="macro">Macro</h4>
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">classAttr</span><span class="p">(</span><span class="nv">classes</span><span class="p">)</span> <span class="cp">%}</span>
+    <span class="cp">{%</span><span class="o">-</span> <span class="k">if</span> <span class="p">(</span><span class="nv">classes</span><span class="o">|</span><span class="nf">length</span><span class="p">)</span> <span class="o">-</span><span class="cp">%}</span>
+        class="<span class="cp">{{</span> <span class="nv">classes</span><span class="o">|</span><span class="nf">join</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span> <span class="cp">}}</span>"
+    <span class="cp">{%</span><span class="o">-</span> <span class="k">endif</span> <span class="o">-</span><span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span>
+</code></pre>
+</div>
 
 <h2 id="responsive-images">Responsive Images</h2>
 <p>If you need to work with responsive images use our nifty responsive macro. You can create fixed width images that will generate retina read markup or variable width images with multiple src sets.</p>
@@ -165,7 +177,7 @@
 </code></pre>
 </div>
 
-<h4 id="macro">Macro</h4>
+<h4 id="macro-1">Macro</h4>
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="c">{# Create a fixed width responsive image #}</span>
 <span class="cp">{%</span> <span class="k">macro</span> <span class="nv">fixed</span><span class="p">(</span><span class="nv">assetId</span><span class="p">,</span> <span class="nv">width</span><span class="p">,</span> <span class="nv">options</span><span class="err">={}</span><span class="p">)</span> <span class="cp">%}</span>
     <span class="cp">{%</span> <span class="k">import</span> <span class="s1">'_macros/_classAttr.twig'</span> <span class="k">as</span> <span class="nv">m_classAttr</span> <span class="cp">%}</span>
@@ -218,7 +230,7 @@
 </code></pre>
 </div>
 
-<h4 id="macro-1">Macro</h4>
+<h4 id="macro-2">Macro</h4>
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="c">{# Create a variable width responsive image #}</span>
 <span class="cp">{%</span> <span class="k">macro</span> <span class="nv">responsive</span><span class="p">(</span><span class="nv">assetId</span><span class="p">,</span> <span class="nv">options</span><span class="err">={}</span><span class="p">)</span> <span class="cp">%}</span>
     <span class="cp">{%</span> <span class="k">import</span> <span class="s1">'_macros/_classAttr.twig'</span> <span class="k">as</span> <span class="nv">m_classAttr</span> <span class="cp">%}</span>
@@ -287,7 +299,7 @@
 </code></pre>
 </div>
 
-<h4 id="macro-2">Macro</h4>
+<h4 id="macro-3">Macro</h4>
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">svg</span><span class="p">(</span><span class="nv">options</span><span class="err">={}</span><span class="p">)</span> <span class="cp">%}</span>
     <span class="c">{# merge the options with passed in options #}</span>
     <span class="cp">{%</span> <span class="k">set</span> <span class="nv">options</span> <span class="err">=</span> <span class="err">{</span>

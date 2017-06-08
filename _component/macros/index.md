@@ -7,7 +7,29 @@ category: twig
 
 We love Twig and have created a few Macros that help make things a bit easier for us. One thing to note when working with Macros and Twig is that you need to import the macro everywhere you need it. If you use an `embed` or `block` within your Twig file, you need to call the Macro import within that `embed` or `block`. You can't add a macro import at the top of the file and expect to use it wherever.
 
-[Responsive Images](#responsive-images) [SVG Icons](#svg-icons)
+By the way, all of this is built into the [starter theme](https://github.com/Objectivco/objectiv-starter-theme) already.
+
+<nav class="PageNav">
+    <a href="#responsive-images">Responsive Images</a>
+    <a href="#svg-icons">SVG Icons</a>
+</nav>
+
+## Classes
+We utilize this Macro within the Image and SVG Icons Macros. It takes an array of classes and outputs them appropriately in the Macros.
+
+```twig
+{% raw %}{% import '_macros/_classAttr.twig' as m_classAttr %}
+{{m_classAttr.classAttr('className')}}{% endraw %}
+```
+
+#### Macro
+```twig
+{% raw %}{% macro classAttr(classes) %}
+    {%- if (classes|length) -%}
+        class="{{ classes|join(' ') }}"
+    {%- endif -%}
+{% endmacro %}{% endraw %}
+```
 
 ## Responsive Images
 If you need to work with responsive images use our nifty responsive macro. You can create fixed width images that will generate retina read markup or variable width images with multiple src sets.

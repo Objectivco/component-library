@@ -1,0 +1,15 @@
+.PageNav {
+    a {
+        background: #eee;
+        border-radius: 3px;
+        font-size: 14px;
+        padding: 5px 10px;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: $red;
+            color: #fff;
+        }
+    }
+}

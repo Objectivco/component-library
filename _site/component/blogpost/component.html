@@ -1,0 +1,35 @@
+<article class="Post" id="post-<?php the_ID(); ?>" itemscope itemtype="https://schema.org/BlogPosting">
+    <section class="Post-content" itemprop="mainEntityOfPage">
+        <header>
+            <!-- thanks to 10up for this -->
+            <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                <img src="https://placekitten.com/g/400/150" srcset="https://placekitten.com/g/400/150 1x, https://placekitten.com/g/800/300 2x" alt="header image" />
+                <meta itemprop="url" content="https://placekitten.com/g/400/150" />
+                <meta itemprop="width" content="400" />
+                <meta itemprop="height" content="150" />
+            </div><!--/itemprop=image-->
+            <h1 class="Post-title" itemprop="headline">Article Title</h1>
+            <div class="PostMeta">
+                <p><strong>Author</strong>:
+                    <span itemprop="author">Author Name</span>
+                </p>
+                <p><strong>Publish Date</strong>:
+                    <time datetime="2017-01-04">January 4, 2017</time>
+                </p>
+            </div>
+            <div itemprop="publisher" itemscope="itemscope" itemtype="https://schema.org/Organization">
+                <div itemprop="logo" itemscope="itemscope" itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://placekitten.com/g/100/100" />
+                    <meta itemprop="width" content="100" />
+                    <meta itemprop="height" content="100" />
+                </div>
+                <meta itemprop="name" content="Company Name" />
+            </div>
+        </header>
+        <div class="Post-body" itemprop="articleBody">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non rhoncus tortor. Nam odio risus, blandit auctor gravida et, vulputate in dui. Ut quis tellus sed lorem dignissim sagittis. Duis pharetra at leo a viverra. Maecenas sagittis aliquam tellus, eget faucibus arcu blandit vel. Duis vestibulum viverra orci, sed rutrum augue congue sit amet. Curabitur arcu enim, interdum consectetur maximus in, ornare nec elit.
+            </p>
+        </div>
+    </section>
+</article>
