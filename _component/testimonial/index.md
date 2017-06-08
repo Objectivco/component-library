@@ -3,7 +3,7 @@ title: Testimonial
 layout: component
 path_slug: testimonial
 category: content
-iframe_height: medium
+iframe_height: small
 ---
 
 <iframe {% if page.iframe_height %}class="h-{{ page.iframe_height }}"{% endif %} src="{{ site.baseurl }}/component/{{ page.path_slug }}/example.html"></iframe>
