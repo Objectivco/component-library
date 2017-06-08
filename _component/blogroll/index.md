@@ -10,4 +10,4 @@ iframe_height: medium
 
 ## Markup
 
-{% include partials/tabs.md %}
+{% include partials/markup.md %}

@@ -22,7 +22,7 @@ Fields:
 
 ## Markup
 
-{% include partials/tabs.md %}
+{% include partials/markup.md %}
 
 ## Styles
 

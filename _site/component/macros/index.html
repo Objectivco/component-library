@@ -144,7 +144,202 @@
 		<h1>Macros</h1>
 	
 	
-	
+	<p>We love Twig and have created a few Macros that help make things a bit easier for us. One thing to note when working with Macros and Twig is that you need to import the macro everywhere you need it. If you use an <code class="highlighter-rouge">embed</code> or <code class="highlighter-rouge">block</code> within your Twig file, you need to call the Macro import within that <code class="highlighter-rouge">embed</code> or <code class="highlighter-rouge">block</code>. You can’t add a macro import at the top of the file and expect to use it wherever.</p>
+
+<p><a href="#responsive-images">Responsive Images</a> <a href="#svg-icons">SVG Icons</a></p>
+
+<h2 id="responsive-images">Responsive Images</h2>
+<p>If you need to work with responsive images use our nifty responsive macro. You can create fixed width images that will generate retina read markup or variable width images with multiple src sets.</p>
+
+<h3 id="fixed-width-images">Fixed Width Images</h3>
+<p>This macro takes 3 parameters:</p>
+
+<ol>
+  <li>Integer: Image’s ID</li>
+  <li>Integer: The width that you want the image to be displayed in</li>
+  <li>Object: Object that takes an alt and class value for outputting the markup</li>
+</ol>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{%</span> <span class="k">import</span> <span class="s1">'_macros/_img.twig'</span> <span class="k">as</span> <span class="nv">m_img</span> <span class="cp">%}</span>
+<span class="cp">{{</span><span class="nv">m_img.fixed</span><span class="p">(</span><span class="nv">imageId</span><span class="p">,</span> <span class="nv">100</span><span class="p">,</span> <span class="err">{</span><span class="nv">alt</span><span class="err">:</span> <span class="s1">'post thumbnail'</span><span class="p">,</span> <span class="nv">class</span><span class="err">:</span> <span class="p">[</span><span class="s1">'fixed'</span><span class="p">]</span><span class="err">}</span><span class="p">)</span><span class="cp">}}</span>
+</code></pre>
+</div>
+
+<h4 id="macro">Macro</h4>
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="c">{# Create a fixed width responsive image #}</span>
+<span class="cp">{%</span> <span class="k">macro</span> <span class="nv">fixed</span><span class="p">(</span><span class="nv">assetId</span><span class="p">,</span> <span class="nv">width</span><span class="p">,</span> <span class="nv">options</span><span class="err">={}</span><span class="p">)</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">import</span> <span class="s1">'_macros/_classAttr.twig'</span> <span class="k">as</span> <span class="nv">m_classAttr</span> <span class="cp">%}</span>
+    
+    <span class="c">{# merge the options with the options parameter #}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">options</span> <span class="err">=</span> <span class="err">{</span>
+        <span class="nv">alt</span><span class="err">:</span> <span class="s1">'alt'</span><span class="p">,</span>
+        <span class="nv">class</span><span class="err">:</span> <span class="p">[]</span>
+    <span class="err">}</span> <span class="err">|</span> <span class="nv">merge</span><span class="p">(</span><span class="nv">options</span><span class="p">)</span> <span class="cp">%}</span>
+
+    <span class="c">{# Get the asset meta data from WP #}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">assetArray</span> <span class="err">=</span> <span class="nv">function</span><span class="p">(</span><span class="s1">'wp_get_attachment_image_src'</span><span class="p">,</span> <span class="nv">assetId</span><span class="p">,</span> <span class="s1">'full'</span><span class="p">)</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">assetUrl</span> <span class="err">=</span> <span class="nv">assetArray</span><span class="p">[</span><span class="nv">0</span><span class="p">]</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">assetMetaData</span> <span class="err">=</span> <span class="nv">function</span><span class="p">(</span><span class="s1">'wp_get_attachment_metadata'</span><span class="p">,</span> <span class="nv">assetId</span><span class="p">)</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">assetNativeWidth</span> <span class="err">=</span> <span class="nv">assetMetaData.width</span> <span class="cp">%}</span>
+    
+
+    <span class="nt">&lt;img</span>
+        <span class="cp">{%</span> <span class="k">if</span> <span class="p">(</span><span class="nv">assetNativeWidth</span> <span class="o">&lt;=</span> <span class="nv">width</span><span class="p">)</span> <span class="cp">%}</span>
+            <span class="na">src=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">assetUrl</span><span class="cp">}}</span><span class="s">"</span>
+        <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+            <span class="na">src=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">assetUrl</span><span class="o">|</span><span class="nf">resize</span><span class="p">(</span><span class="nv">width</span><span class="p">)</span><span class="cp">}}</span><span class="s">"</span>
+        <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+        <span class="cp">{%</span> <span class="k">if</span> <span class="p">(</span><span class="nv">width</span><span class="o">*</span><span class="nv">2</span> <span class="o">==</span> <span class="nv">assetNativeWidth</span><span class="p">)</span> <span class="cp">%}</span>
+            <span class="na">srcset=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">assetUrl</span><span class="cp">}}</span><span class="s"> 2x"</span>
+        <span class="cp">{%</span> <span class="nv">elseif</span> <span class="p">(</span><span class="nv">width</span><span class="o">*</span><span class="nv">2</span> <span class="o">&lt;</span> <span class="nv">assetNativeWidth</span><span class="p">)</span> <span class="cp">%}</span>
+            <span class="na">srcset=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">assetUrl</span><span class="o">|</span><span class="nf">resize</span><span class="p">(</span><span class="nv">width</span><span class="o">*</span><span class="nv">2</span><span class="p">)</span><span class="cp">}}</span><span class="s"> 2x"</span>
+        <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+        <span class="na">alt=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">options.alt</span><span class="cp">}}</span><span class="s">"</span>
+        <span class="cp">{{</span><span class="nv">m_classAttr.classAttr</span><span class="p">(</span><span class="nv">options.class</span><span class="p">)</span><span class="cp">}}</span>
+    <span class="nt">/&gt;</span>
+
+<span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span>
+</code></pre>
+</div>
+
+<h3 id="responsive-image">Responsive Image</h3>
+<p>This macro takes 3 parameters:</p>
+
+<ol>
+  <li>Integer: Image’s ID</li>
+  <li>Integer: The width that you want the image to be displayed in</li>
+  <li>Object: Object that takes an alt and class value for outputting the markup</li>
+</ol>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{%</span> <span class="k">import</span> <span class="s1">'_macros/_img.twig'</span> <span class="k">as</span> <span class="nv">m_img</span> <span class="cp">%}</span>
+<span class="cp">{{</span><span class="nv">m_img.responsive</span><span class="p">(</span><span class="nv">imageId</span><span class="p">,</span> <span class="err">{</span><span class="nv">alt</span><span class="err">:</span> <span class="s1">'post thumbnail'</span><span class="p">,</span> <span class="nv">class</span><span class="err">:</span> <span class="p">[</span><span class="s1">'responsive'</span><span class="p">]</span><span class="err">}</span><span class="p">)</span><span class="cp">}}</span>
+</code></pre>
+</div>
+
+<h4 id="macro-1">Macro</h4>
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="c">{# Create a variable width responsive image #}</span>
+<span class="cp">{%</span> <span class="k">macro</span> <span class="nv">responsive</span><span class="p">(</span><span class="nv">assetId</span><span class="p">,</span> <span class="nv">options</span><span class="err">={}</span><span class="p">)</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">import</span> <span class="s1">'_macros/_classAttr.twig'</span> <span class="k">as</span> <span class="nv">m_classAttr</span> <span class="cp">%}</span>
+    <span class="c">{# merge the options with options parameter #}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">options</span> <span class="err">=</span> <span class="err">{</span>
+        <span class="nv">alt</span><span class="err">:</span> <span class="s1">'alt'</span><span class="p">,</span>
+        <span class="nv">class</span><span class="err">:</span> <span class="p">[],</span>
+        <span class="nv">style</span><span class="err">:</span> <span class="s1">'default'</span><span class="p">,</span>
+    <span class="err">}</span> <span class="err">|</span> <span class="nv">merge</span><span class="p">(</span><span class="nv">options</span><span class="p">)</span> <span class="cp">%}</span>
+
+    <span class="c">{# Get the asset meta data from WP #}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">assetArray</span> <span class="err">=</span> <span class="nv">function</span><span class="p">(</span><span class="s1">'wp_get_attachment_image_src'</span><span class="p">,</span> <span class="nv">assetId</span><span class="p">,</span> <span class="s1">'full'</span><span class="p">)</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">assetUrl</span> <span class="err">=</span> <span class="nv">assetArray</span><span class="p">[</span><span class="nv">0</span><span class="p">]</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">assetMetaData</span> <span class="err">=</span> <span class="nv">function</span><span class="p">(</span><span class="s1">'wp_get_attachment_metadata'</span><span class="p">,</span> <span class="nv">assetId</span><span class="p">)</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">assetNativeWidth</span> <span class="err">=</span> <span class="nv">assetMetaData.width</span> <span class="cp">%}</span>
+
+    <span class="c">{# Image Config
+     </span><span class="err">#</span><span class="c"> Make sure to update the configs to what fits for each site.
+     #}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">config</span> <span class="err">=</span> <span class="err">{</span>
+        <span class="nv">default</span><span class="err">:</span> <span class="err">{</span>
+            <span class="nv">srcsetWidths</span><span class="err">:</span> <span class="p">[</span><span class="nv">640</span><span class="p">,</span> <span class="nv">1024</span><span class="p">,</span> <span class="nv">1600</span><span class="p">],</span>
+            <span class="nv">sizes</span><span class="err">:</span> <span class="p">[</span>
+                <span class="s1">'(min-width: 900px) 1025px'</span><span class="p">,</span>
+                <span class="s1">'100vw'</span>
+            <span class="p">],</span>
+            <span class="nv">defaultWidth</span><span class="err">:</span> <span class="nv">1024</span>
+        <span class="err">}</span>
+    <span class="err">}</span> <span class="cp">%}</span>
+
+    <span class="c">{# Let's get the style that is sent through as parameter #}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">params</span> <span class="err">=</span> <span class="nv">config</span><span class="p">[</span><span class="nv">options.style</span><span class="p">]</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">srcset</span> <span class="err">=</span> <span class="p">[]</span> <span class="cp">%}</span>
+
+    <span class="c">{# Create the srcset #}</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">width</span> <span class="ow">in</span> <span class="nv">params</span><span class="p">[</span><span class="s1">'srcsetWidths'</span><span class="p">]</span> <span class="cp">%}</span>
+        <span class="cp">{%</span> <span class="k">set</span> <span class="nv">srcset</span> <span class="err">=</span> <span class="nv">srcset</span><span class="o">|</span><span class="nf">merge</span><span class="p">([</span><span class="nv">assetUrl</span><span class="o">|</span><span class="nf">resize</span><span class="p">(</span><span class="nv">width</span><span class="p">)</span> <span class="err">~</span> <span class="s1">' '</span> <span class="err">~</span> <span class="nv">width</span> <span class="err">~</span> <span class="s1">'w'</span><span class="p">])</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+
+    <span class="nt">&lt;img</span> 
+        <span class="cp">{%</span> <span class="k">if</span> <span class="p">(</span><span class="nv">assetNativeWidth</span> <span class="o">&lt;=</span> <span class="nv">params</span><span class="p">[</span><span class="s1">'defaultWidth'</span><span class="p">])</span> <span class="cp">%}</span>
+            <span class="na">src=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">assetUrl</span><span class="cp">}}</span><span class="s">"</span>
+        <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+            <span class="na">src=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">assetUrl</span><span class="o">|</span><span class="nf">resize</span><span class="p">(</span><span class="nv">width</span><span class="p">)</span><span class="cp">}}</span><span class="s">"</span>
+        <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+
+        <span class="na">srcset=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">srcset</span><span class="o">|</span><span class="nf">join</span><span class="p">(</span><span class="s1">', '</span><span class="p">)</span><span class="cp">}}</span><span class="s">"</span>
+        <span class="na">sizes=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">params</span><span class="p">[</span><span class="s1">'sizes'</span><span class="p">]</span><span class="o">|</span><span class="nf">join</span><span class="p">(</span><span class="s1">', '</span><span class="p">)</span><span class="cp">}}</span><span class="s">"</span>
+
+        <span class="na">alt=</span><span class="s">"</span><span class="cp">{{</span><span class="nv">options.alt</span><span class="cp">}}</span><span class="s">"</span>
+
+        <span class="cp">{{</span><span class="nv">m_classAttr.classAttr</span><span class="p">(</span><span class="nv">options.class</span><span class="p">)</span><span class="cp">}}</span>
+    <span class="nt">/&gt;</span>
+
+<span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span>
+</code></pre>
+</div>
+
+<h2 id="svg-icons">SVG Icons</h2>
+<p>Just like the image macro the SVG macro will output an inline SVG element for you. There are a few requirements to use this macro. You must compile all of your SVG files into a single SVG sprite file with specific ID for each single SVG Icon. We use IcoMoon to generate our SVG icons store them in a directory within the theme and then use Gulp to generate the sprite for us.</p>
+
+<p>The SVG Macro takes an object as its parameter with the required key value of <code class="highlighter-rouge">icon</code> with the file name of the SVG icon passed through as the value.</p>
+
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{%</span> <span class="k">import</span> <span class="s1">'_macros/_svg.twig'</span> <span class="k">as</span> <span class="nv">m_svg</span> <span class="cp">%}</span>
+<span class="cp">{{</span><span class="nv">m_svg.svg</span><span class="p">(</span><span class="err">{</span><span class="nv">icon</span><span class="err">:</span> <span class="s1">'facebook-square'</span><span class="p">,</span> <span class="nv">title</span><span class="err">:</span> <span class="s1">'Facebook'</span><span class="p">,</span> <span class="nv">desc</span><span class="err">:</span> <span class="s1">'Facebook Icon'</span><span class="err">}</span><span class="p">)</span><span class="cp">}}</span>
+</code></pre>
+</div>
+
+<h4 id="macro-2">Macro</h4>
+<div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="cp">{%</span> <span class="k">macro</span> <span class="nv">svg</span><span class="p">(</span><span class="nv">options</span><span class="err">={}</span><span class="p">)</span> <span class="cp">%}</span>
+    <span class="c">{# merge the options with passed in options #}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">options</span> <span class="err">=</span> <span class="err">{</span>
+        <span class="nv">icon</span><span class="err">:</span> <span class="s1">'facebook-square'</span><span class="p">,</span>
+        <span class="nv">title</span><span class="err">:</span> <span class="s1">'Facebook'</span><span class="p">,</span>
+        <span class="nv">desc</span><span class="err">:</span> <span class="s1">''</span>
+    <span class="err">}</span> <span class="err">|</span> <span class="nv">merge</span><span class="p">(</span><span class="nv">options</span><span class="p">)</span> <span class="cp">%}</span>
+
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">title</span> <span class="err">=</span> <span class="nv">options.title</span> <span class="err">?</span> <span class="nv">options.title</span> <span class="err">:</span> <span class="nv">options.icon</span> <span class="cp">%}</span>
+    <span class="cp">{%</span> <span class="k">set</span> <span class="nv">ariaHidden</span> <span class="err">=</span> <span class="s1">' aria-hidden="true"'</span> <span class="cp">%}</span>
+
+    <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"icon icon-</span><span class="cp">{{</span><span class="nv">options.icon</span><span class="cp">}}</span><span class="s">"</span> <span class="cp">{{</span><span class="nv">ariaHidden</span><span class="cp">}}</span> <span class="na">role=</span><span class="s">"img"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title&gt;</span><span class="cp">{{</span><span class="nv">options.title</span><span class="cp">}}</span><span class="nt">&lt;/title&gt;</span>
+        <span class="cp">{%</span> <span class="k">if</span> <span class="nv">options.desc</span> <span class="cp">%}</span>
+            <span class="nt">&lt;desc&gt;</span><span class="cp">{{</span><span class="nv">options.desc</span><span class="cp">}}</span><span class="nt">&lt;/desc&gt;</span>
+        <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+        <span class="nt">&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#icon-</span><span class="cp">{{</span><span class="nv">options.icon</span><span class="cp">}}</span><span class="s">"</span><span class="nt">&gt;&lt;/use&gt;</span>
+    <span class="nt">&lt;/svg&gt;</span>
+<span class="cp">{%</span> <span class="k">endmacro</span> <span class="cp">%}</span>
+</code></pre>
+</div>
+
+<h4 id="gulp">Gulp</h4>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">svgmin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span> <span class="s1">'gulp-svgmin'</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">svgstore</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span> <span class="s1">'gulp-svgstore'</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">del</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span> <span class="s1">'del'</span> <span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cheerio</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span> <span class="s1">'gulp-cheerio'</span> <span class="p">);</span>
+
+<span class="cm">/**
+ * Task to concat and compile svg into a single file
+ */</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'svg'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s1">'assets/icons/svg-icons/*.svg'</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">svgmin</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rename</span><span class="p">({</span><span class="na">prefix</span><span class="p">:</span> <span class="s1">'icon-'</span><span class="p">}))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">svgstore</span><span class="p">({</span><span class="na">inlineSvg</span><span class="p">:</span> <span class="kc">true</span><span class="p">}))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">cheerio</span><span class="p">({</span>
+            <span class="na">run</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'svg'</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'style'</span><span class="p">,</span> <span class="s1">'display: none'</span><span class="p">);</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'[fill]'</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s1">'fill'</span><span class="p">);</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'path'</span><span class="p">).</span><span class="nx">removeAttr</span><span class="p">(</span><span class="s1">'class'</span><span class="p">);</span>
+            <span class="p">},</span>
+            <span class="na">parserOptions</span><span class="p">:</span> <span class="p">{</span><span class="na">xmlMode</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
+        <span class="p">}))</span>
+        <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s1">'assets/icons'</span><span class="p">))</span>
+<span class="p">})</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span> <span class="s1">'icons'</span><span class="p">,</span> <span class="p">[</span> <span class="s1">'svg'</span> <span class="p">]</span> <span class="p">);</span>
+</code></pre>
+</div>
+
 
 </div>
 
