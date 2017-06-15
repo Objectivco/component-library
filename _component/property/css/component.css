@@ -1,0 +1,19 @@
+.hide {
+    display: none !important;
+}
+
+.Property {
+    max-width: 400px;
+}
+
+.Property-meta {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.Property-meta li {
+    list-style-type: none;
+}

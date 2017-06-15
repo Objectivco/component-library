@@ -89,9 +89,9 @@
                                     
                                 
                                     
-                                        <li class="ComponentList-item"><a href="/component-library/component/logo/index.html">Logo</a></li>
-                                    
                                 
+                                    
+                                        <li class="ComponentList-item"><a href="/component-library/component/property/index.html">Property</a></li>
                                     
                                 
                                     
@@ -114,9 +114,9 @@
                                     
                                 
                                     
-                                
-                                    
                                         <li class="ComponentList-item"><a href="/component-library/component/macros/index.html">Macros</a></li>
+                                    
+                                
                                     
                                 
                                     
@@ -131,10 +131,72 @@
             <main class="SiteContent">
                 <div class="Component">
 	
-		<h1>Logo</h1>
+		<h1>Property</h1>
 	
 	
-	<h2 id="logo">Logo</h2>
+	<iframe class="h-medium" src="/component-library/component/property/example.html"></iframe>
+
+<h2 id="markup">Markup</h2>
+<p>We are only including the HTML markup for this component. This is because the information for this component can come from multiple different sources. We use the SimplyRETS API so that we can have complete control over the data when displaying real estate properties.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Property"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/SingleFamilyResidence"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"Property-address hide"</span> <span class="na">itemprop=</span><span class="s">"address"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/PostalAddress"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"streetAddress"</span><span class="nt">&gt;</span>1234 Street Address Way #1343<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"addressLocality"</span><span class="nt">&gt;</span>Aspen<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"addressRegion"</span><span class="nt">&gt;</span>CO<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"postalCode"</span><span class="nt">&gt;</span>12345<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"geo"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/GeoCoordinates"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"latitude"</span> <span class="na">content=</span><span class="s">"39.148027"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"longitude"</span> <span class="na">content=</span><span class="s">"-106.814707"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Property-image"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://example.com"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://placekitten.com/g/400/150"</span> <span class="na">srcset=</span><span class="s">"https://placekitten.com/g/400/150 1x, https://placekitten.com/g/800/300 2x"</span> <span class="na">alt=</span><span class="s">"header image"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Property-details"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"Property-price"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://example.com"</span><span class="nt">&gt;</span>$2,695,000 <span class="nt">&lt;/br&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"Property-address"</span><span class="nt">&gt;</span>1234 Street Address Way #1343<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/h4&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Property-data"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"Property-meta"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;strong&gt;</span>3<span class="nt">&lt;/strong&gt;</span> Bed<span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;strong&gt;</span>2<span class="nt">&lt;/strong&gt;</span> Bath<span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;strong&gt;</span>6,474<span class="nt">&lt;/strong&gt;</span> SqFt<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="styles">Styles</h2>
+
+<h3 id="css">CSS</h3>
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.hide</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.Property</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">400px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.Property-meta</span> <span class="p">{</span>
+    <span class="nl">align-items</span><span class="p">:</span> <span class="nb">baseline</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+    <span class="nl">justify-content</span><span class="p">:</span> <span class="n">space-between</span><span class="p">;</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.Property-meta</span> <span class="nt">li</span> <span class="p">{</span>
+    <span class="nl">list-style-type</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 </div>
 
