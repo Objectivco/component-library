@@ -45,6 +45,10 @@
                                     
                                 
                                     
+                                
+                                    
+                                
+                                    
                                         <li class="ComponentList-item"><a href="/component-library/component/tabs/index.html">Tabs</a></li>
                                     
                                 
@@ -56,6 +60,10 @@
                         <div class="CategoryLink">
                             <h4>Navigation</h4>
                             <ul class="ComponentList">
+                                
+                                    
+                                
+                                    
                                 
                                     
                                 
@@ -89,6 +97,14 @@
                                     
                                 
                                     
+                                        <li class="ComponentList-item"><a href="/component-library/component/book/index.html">Book</a></li>
+                                    
+                                
+                                    
+                                
+                                    
+                                        <li class="ComponentList-item"><a href="/component-library/component/person/index.html">Person</a></li>
+                                    
                                 
                                     
                                         <li class="ComponentList-item"><a href="/component-library/component/property/index.html">Property</a></li>
@@ -114,7 +130,11 @@
                                     
                                 
                                     
+                                
+                                    
                                         <li class="ComponentList-item"><a href="/component-library/component/macros/index.html">Macros</a></li>
+                                    
+                                
                                     
                                 
                                     
@@ -140,21 +160,25 @@
 <p>We are only including the HTML markup for this component. This is because the information for this component can come from multiple different sources. We use the SimplyRETS API so that we can have complete control over the data when displaying real estate properties.</p>
 
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Property"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/SingleFamilyResidence"</span><span class="nt">&gt;</span>
+    
     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"Property-address hide"</span> <span class="na">itemprop=</span><span class="s">"address"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/PostalAddress"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"streetAddress"</span><span class="nt">&gt;</span>1234 Street Address Way #1343<span class="nt">&lt;/span&gt;</span>
         <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"addressLocality"</span><span class="nt">&gt;</span>Aspen<span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"addressRegion"</span><span class="nt">&gt;</span>CO<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"addressRegion"</span><span class="nt">&gt;&lt;abbr</span> <span class="na">title=</span><span class="s">"Colorado"</span><span class="nt">&gt;</span>CO<span class="nt">&lt;/abbr&gt;&lt;/span&gt;</span>
         <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"postalCode"</span><span class="nt">&gt;</span>12345<span class="nt">&lt;/span&gt;</span>
     <span class="nt">&lt;/span&gt;</span>
+    
     <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"geo"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/GeoCoordinates"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"latitude"</span> <span class="na">content=</span><span class="s">"39.148027"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;meta</span> <span class="na">itemprop=</span><span class="s">"longitude"</span> <span class="na">content=</span><span class="s">"-106.814707"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;/span&gt;</span>
+    
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Property-image"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://example.com"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://placekitten.com/g/400/150"</span> <span class="na">srcset=</span><span class="s">"https://placekitten.com/g/400/150 1x, https://placekitten.com/g/800/300 2x"</span> <span class="na">alt=</span><span class="s">"header image"</span> <span class="nt">/&gt;</span>
         <span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
+    
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Property-details"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"Property-price"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://example.com"</span><span class="nt">&gt;</span>$2,695,000 <span class="nt">&lt;/br&gt;</span>
@@ -169,6 +193,7 @@
             <span class="nt">&lt;/ul&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
+    
 <span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </div>
