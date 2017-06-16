@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.SiteContainer {
+    position: relative;
+    right: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.SiteContainer.Nav--is-visible {
+    right: 300px;
+}
+
+.SiteHeader {
+    align-items: center;
+    background: #555;
+    display: flex;
+    padding: 10px;
+}
+
+.SiteTitle {
+    margin: 0;
+}
+
+.Logo {
+    display: block;
+}
+
+.NavToggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    margin-left: auto;
+}
+
+.NavToggle-icon {
+    height: 12px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: all 0.25s ease-in-out;
+    width: 20px;
+}
+
+.NavToggle-icon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    border-radius: 0;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: all 0.25s ease-in-out;
+}
+
+.NavToggle-icon span:nth-child(1) {
+    top: 0px;
+}
+
+.NavToggle-icon span:nth-child(2),
+.NavToggle-icon span:nth-child(3) {
+    top: 5px;
+}
+
+.NavToggle-icon span:nth-child(4) {
+    top: 10px;
+}
+
+.NavToggle.Nav--is-visible .NavToggle-icon span:nth-child(1) {
+    opacity: 0;
+}
+
+.NavToggle.Nav--is-visible .NavToggle-icon span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.NavToggle.Nav--is-visible .NavToggle-icon span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.NavToggle.Nav--is-visible .NavToggle-icon span:nth-child(4) {
+    left: 50%;
+    top: 18px;
+    width: 0%;
+}
+
+.Nav {
+    transition: all 0.5s ease-in-out;
+}
+
+.Nav .menu {
+    margin: 0;
+    padding: 15px 0;
+}
+
+.Nav .menu .menu-item {
+    list-style: none;
+}
+
+.Nav .menu .menu-item > a {
+    color: #fff;
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.Nav--mobile {
+    background-color: #2d2d2d;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    z-index: 2000;
+}
+
+.Nav--mobile.Nav--is-visible {
+    right: 0;
+}
+
+.SiteContainer.Nav--is-visible {
+    right: 300px;
+}

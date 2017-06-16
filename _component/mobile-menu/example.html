@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<title>Accordion</title>
+	<link rel="stylesheet" href="css/component.css" />
+</head>
+<body>
+
+	<div class="SiteContainer">
+
+        <!--
+            We keep our mobile menu as the top most element
+            to make it easier to keep off canvas
+        -->
+        <nav class="Nav Nav--mobile" aria-hidden="true">
+            
+            <ul id="menu-main-menu" class="menu">
+                <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22">
+                    <a href="https://objectiv.co/work/" itemprop="url">Work</a>
+                </li>
+                <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21">
+                    <a href="https://objectiv.co/services/" itemprop="url">Services</a>
+                </li>
+                <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23">
+                    <a href="https://objectiv.co/our-story/" itemprop="url">Our Story</a>
+                </li>
+                <li id="menu-item-3617" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3617">
+                    <a href="https://store.objectiv.co" itemprop="url">Plugins</a>
+                </li>
+                <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
+                    <a href="https://objectiv.co/blog/" itemprop="url">Blog</a>
+                </li>
+                <li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19">
+                    <a href="https://objectiv.co/contact/" itemprop="url">Contact</a>
+                </li>
+            </ul>
+
+        </nav>
+       
+        <div class="SiteHeader" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+       
+            <h1 class="SiteTitle" itemscope itemtype="http://schema.org/Organization">
+                <a  itemprop="url" href="#" rel="home">
+                    <img itemprop="logo" class="Logo" src="https://placehold.it/140x40?text=LOGO" height="42" width="140" alt="">
+                    <!--
+                        Visually hide this text.
+                        WCAG 2.0: “image alt text cannot be the primary text of a link"
+                    -->
+                    <span class="screen-reader-text">Objectiv</span>
+                </a>
+            </h1>
+       
+            <button class="NavToggle" aria-expanded="false">
+                <div class="NavToggle-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="screen-reader-text">Primary Menu</span>
+            </button>
+       
+        </div>
+
+    </div>
+	
+	<script src="js/component.js"></script>
+	<script src="js/component-usage.js"></script>
+</body>
+</html>
