@@ -178,29 +178,32 @@
 <h2 id="markup">Markup</h2>
 <h3>HTML</h3>
 <div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"Testimonial"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/Review"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;blockqoute</span> <span class="na">itemprop=</span><span class="s">"reviewBody"</span><span class="nt">&gt;</span>This is the greatest compnoent library out there... 10up is even awesomer for inspiring it!<span class="nt">&lt;/blockquote&gt;</span>
+    <span class="nt">&lt;blockquote</span> <span class="na">itemprop=</span><span class="s">"reviewBody"</span><span class="nt">&gt;</span>This is the greatest compnoent library out there... 10up is even awesomer for inspiring it!<span class="nt">&lt;/blockquote&gt;</span>
     <span class="nt">&lt;footer&gt;</span>
         <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"TestimonialAuthor"</span> <span class="na">itemprop=</span><span class="s">"author"</span><span class="nt">&gt;</span>- Wes Cole<span class="nt">&lt;/cite&gt;</span>
     <span class="nt">&lt;/footer&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
+
 </code></pre>
 </div>
 <h3>PHP</h3>
 <div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"Testimonial"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/Review"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;blockqoute</span> <span class="na">itemprop=</span><span class="s">"reviewBody"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_field</span><span class="p">(</span> <span class="s1">'testimonial_quote'</span> <span class="p">);</span> <span class="cp">?&gt;</span><span class="nt">&lt;/blockquote&gt;</span>
+    <span class="nt">&lt;blockquote</span> <span class="na">itemprop=</span><span class="s">"reviewBody"</span><span class="nt">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_field</span><span class="p">(</span> <span class="s1">'testimonial_quote'</span> <span class="p">);</span> <span class="cp">?&gt;</span><span class="nt">&lt;/blockquote&gt;</span>
     <span class="nt">&lt;footer&gt;</span>
         <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"TestimonialAuthor"</span> <span class="na">itemprop=</span><span class="s">"author"</span><span class="nt">&gt;</span>- <span class="cp">&lt;?php</span> <span class="nx">the_field</span><span class="p">(</span> <span class="s1">'testimonial_author'</span> <span class="p">);</span> <span class="cp">?&gt;</span><span class="nt">&lt;/cite&gt;</span>
     <span class="nt">&lt;/footer&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
+
 </code></pre>
 </div>
 <h3>Twig</h3>
 <div class="language-twig highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;figure</span> <span class="na">class=</span><span class="s">"Testimonial"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/Review"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;blockqoute</span> <span class="na">itemprop=</span><span class="s">"reviewBody"</span><span class="nt">&gt;</span><span class="cp">{{</span><span class="nv">testimonial.get_field</span><span class="p">(</span><span class="s1">'testimonial_quote'</span><span class="p">)</span><span class="cp">}}</span><span class="nt">&lt;/blockquote&gt;</span>
+    <span class="nt">&lt;blockquote</span> <span class="na">itemprop=</span><span class="s">"reviewBody"</span><span class="nt">&gt;</span><span class="cp">{{</span><span class="nv">testimonial.get_field</span><span class="p">(</span><span class="s1">'testimonial_quote'</span><span class="p">)</span><span class="cp">}}</span><span class="nt">&lt;/blockquote&gt;</span>
     <span class="nt">&lt;footer&gt;</span>
         <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"TestimonialAuthor"</span> <span class="na">itemprop=</span><span class="s">"author"</span><span class="nt">&gt;</span>- <span class="cp">{{</span><span class="nv">testimonial.get_field</span><span class="p">(</span><span class="s1">'testimonial_author'</span><span class="p">)</span><span class="cp">}}</span><span class="nt">&lt;/cite&gt;</span>
     <span class="nt">&lt;/footer&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
+
 </code></pre>
 </div>
 
